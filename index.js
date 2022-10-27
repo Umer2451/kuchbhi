@@ -5,19 +5,19 @@ const port = 3000 //what port to use
 
 const path = require('path')
 
-app.get('/users', (req, res) => { //request = req, and res = rest
+app.get('/users', (req, res) => { //request = req, and res = response
   res.send('Hello Umer! Im WORKING fine') //send request.
 })
 
-app.get('/image', (req, res) => { //request = req, and res = rest
+app.get('/image', (req, res) => { //request = req, and res = response
   let imagepath = path.join(__dirname, 'Tomholland.jpg')
-    res.sendFile(imagepath)
+    res.sendFile(imagepath) //sends one image
 })
 
 app.get('/dynamicimage', (req,res) => {
-  let imageone = path.join(__dirname, 'Tomholland.jpg')
-  let imagetwo = path.join(__dirname, 'as.jpg')
-  let imagethree = path.join(__dirname, 'error.jpg')
+  let imageone = path.join(__dirname, 'gallery' , 'Tomholland.jpg')
+  let imagetwo = path.join(__dirname, 'gallery' , 'as.jpg')
+  let imagethree = path.join(__dirname, 'gallery' , 'error.jpg')
   console.log(req.query)
   if (req.query.name == 'imageone'){
     res.sendFile(imageone)
